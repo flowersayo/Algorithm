@@ -3,10 +3,9 @@
 
 # 문제 출처
 
-
+https://github.com/tony9402/baekjoon
 
 # 목차
-https://github.com/tony9402/baekjoon/tree/main/data_structure2
 
 
 
