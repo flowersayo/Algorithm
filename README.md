@@ -12,7 +12,7 @@ https://github.com/tony9402/baekjoon
  | 번호 | 주제(영어)| 주제(한글)| 문제집| 바로가기|
  | :---:|:--------:| :------: |:------:|:------:|
 | 01 |  Data Structure | 자료구조  | [자료구조](https://github.com/tony9402/baekjoon/tree/main/data_structure)| [바로가기](./자료구조) |
-| 02 | Data Structure 2 | 자료구조 2 | [자료구조2](https://github.com/tony9402/baekjoon)| [바로가기](./자료구조2) |
+| 02 | Data Structure 2 | 자료구조 2 | [자료구조2](https://github.com/tony9402/baekjoon/tree/main/data_structure2)| [바로가기](./자료구조2) |
 | 02 | Tree | 트리 |[트리](https://github.com/tony9402/baekjoon/tree/main/tree) |[바로가기](./트리) |
 | 03 | Math | 수학 | [수학](https://github.com/tony9402/baekjoon/tree/main/math)|[바로가기](./수학) | 
 | 04 | Greedy | 탐욕법 |[그리디](https://github.com/tony9402/baekjoon/tree/main/greedy) |[바로가기](./그리디) |
