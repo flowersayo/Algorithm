@@ -1,0 +1,40 @@
+//프로그래머스에서는 main함수 및 입출력문이 필요하지 않습니다. 대신 solution함수만 작성하면 됩니다.
+#include <iostream>
+using namespace std;
+
+string convert(string str){
+	
+	string decode ="";
+	char target = str[0];
+	if(target=='1'){
+		decode ="1";
+	}
+	int combo = 0; 
+	for(int i=1;i<str.length();i++){
+		if(target!=str[i]){
+			decode += ('A'+ combo );
+			target = str[i];
+			combo=0;
+			
+		}
+		else{
+			combo++;
+		}
+		
+		
+	}
+	
+	decode += ('A'+ combo );
+	
+	
+	
+	return decode; 
+}
+int main() {
+
+	string str;
+	
+	cin>>str;
+	
+	cout<<convert(str);
+}
