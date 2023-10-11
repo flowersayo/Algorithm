@@ -43,15 +43,11 @@ int solution(int bridge_length, int weight, vector<int> truck_weights)
     {
 
         t++;
-        // cout<<"t:"<<t<<"\n";
 
         ci truck = trucks_on_bridge.front();
         // 1. 내릴 차가 있는지 확인하고 내린다.
         if (truck.second == t)
         {
-
-            // cout<<"트럭내림"<<truck.first<<"\n";
-
             trucks_on_bridge.pop();
             total_weight -= truck.first;
             completed++;
