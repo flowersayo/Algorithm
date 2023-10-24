@@ -31,17 +31,16 @@ n개 초과해서 바위가 제거된다면, 거리의 최솟값을 좁혀본다
 int countNumOfRemovedRocks(int n, int min_dist, int distance, vector<int> rocks)
 { // 최소 거리 min_dist를 만족하기 위해 지워야하는 바위 개수
 
-    if (distance == min_dist)
-    {
-        return rocks.size(); // 모든 바위 제거
-    }
     int remove_cnt = 0; // 최소거리 k를 만들기 위해서 제거해야하는 바위 수
 
     // 최소거리 k를 만들기 위해서 필요한 바위개수 카운트
     // 배열의 처음부터 확인하면서 최소거리가 k 미만이면 바위를 지운다.
 
     int before = 0; // 이전 바위의 위치
+    rocks.push_back(distance);
 
+    // 적어도 모든 바위가 제거되고 나면 btnDist >= min_dist 가 될테니까
+    // remove_cnt > 바위개수 인 상황은 발생하지 않는다.
     for (int i = 0; i < rocks.size(); i++)
     {
 
@@ -53,16 +52,6 @@ int countNumOfRemovedRocks(int n, int min_dist, int distance, vector<int> rocks)
         else
         {
             before = rocks[i]; // 이전 바위 위치 업데이트
-        }
-    }
-
-    // 마지막 바위 ~ 끝 확인
-    if ((distance - before) < min_dist)
-    {
-        if (before != 0)
-        { // before가 시작점인경우 ->  여태까지 모든 바위를 지운 경우
-            // 이전 바위를 지워서 최소 거리를 만족시킴
-            remove_cnt++;
         }
     }
 
