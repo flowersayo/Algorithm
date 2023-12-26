@@ -43,8 +43,6 @@ int calcFatigue(int type, int idx, int cnt, vector<string> minerals)
 void dfs(int idx, int sum, vector<string> minerals, vector<int> picks, int picks_remaindar)
 {
 
-    // cout<<"idx :"<<idx<<"sum :"<<sum<<"\n";
-
     if (idx == ((minerals.size() / 5) + (minerals.size() % 5 ? 1 : 0)) || picks_remaindar == 0) // 모든 광물을 캔 경우 or 곡괭이가 부족한 경우
     {
 
@@ -54,11 +52,11 @@ void dfs(int idx, int sum, vector<string> minerals, vector<int> picks, int picks
 
     // 남아 있는 곡괭이들 중 하나 선택
 
-    // cout<<"남아 있는 곡괭이"<<"\n";
     for (int i = 0; i < picks.size(); i++)
     {
+        int fatigue_sum
 
-        if (picks[i] > 0)
+            if (picks[i] > 0)
         {
 
             // idx 에서 시작해서 최대 연속으로 캘 수 있는 값
@@ -66,9 +64,11 @@ void dfs(int idx, int sum, vector<string> minerals, vector<int> picks, int picks
 
             int fatigue_sum = calcFatigue(i, idx * CONSECUTIVE_NUMBER, max_consecutive, minerals);
             picks[i]--;
-            dfs(idx + 1, sum + fatigue_sum, minerals, picks, picks_remaindar - 1);
+
             picks[i]++;
         }
+
+        dfs(idx + 1, sum + fatigue_sum, minerals, picks, picks_remaindar - 1);
     }
 }
 /**
@@ -77,6 +77,7 @@ void dfs(int idx, int sum, vector<string> minerals, vector<int> picks, int picks
  *
  * dfs 브루트포스 완전 탐색
  * 5개씩 묶고 각각 다이아,철,돌 곡괭이로 캤을 때 경우의 수를 뻗어나가기.
+ * 다이아, 철,
  * => 정해진 조건을 만족하면 최솟값 갱신
  *
  * < 최솟값 갱신 조건 >
