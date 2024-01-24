@@ -1,8 +1,8 @@
 class Solution
 {
 public:
-    // sol1 :
-    // 내풀이 623ms 143.9 MB
+    // sol1 : 내풀이
+    // 623ms 143.9 MB
     int lengthOfLongestSubstring(string s)
     {
 
@@ -48,6 +48,7 @@ public:
     }
 
     // sol2: 마지막 문자가 나온 곳을 기억해두면 굳이 중복된 문자가 나타나기 이전까지 직접 반복을 돌지 않고도 O(1)만에 알 수 있음.
+    // 76 ms 11.3MB
     int lengthOfLongestSubstring(string s)
     {
 
