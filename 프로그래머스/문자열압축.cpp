@@ -56,9 +56,8 @@ int solution(string s)
         {
             compression += pattern; // 숫자 1은 생략
         }
-        else
         {
-            compression += (to_string(cnt) + pattern);
+            else compression += (to_string(cnt) + pattern);
         }
 
         int len = compression.size();
