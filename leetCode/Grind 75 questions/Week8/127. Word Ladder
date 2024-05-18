@@ -1,0 +1,90 @@
+#define INF  987654321
+
+class Solution {
+public:
+
+    map<string,bool> visited; // 최소 횟수 저장
+
+    vector<string> nextWords(string str,vector<string>& wordList){
+
+        vector<string> ans;
+        for(string word : wordList){
+            int diff_cnt = 0;
+            for(int i=0;i<str.length();i++){
+                if(str[i]!=word[i]){
+                    diff_cnt++;
+                }
+
+                if(diff_cnt>=2){
+                    break;
+                }
+            }
+
+            if(diff_cnt!=0 && diff_cnt<=1){ // 본인 자신은 제외
+                ans.push_back(word);
+            }
+            
+        }
+
+        return ans;
+    }
+
+   
+    
+    int bfs(string beginWord,int cnt, vector<string>& wordList,string endWord){
+        queue<string> q;
+
+        int ans = INF;
+
+        q.push(beginWord);
+        visited[beginWord] =true; 
+
+        int level = 1;
+ 
+
+        while(!q.empty()){
+
+            int size = q.size();
+
+            for(int i=0;i<size;i++){
+
+                string str = q.front();
+                q.pop();
+
+
+                if(str == endWord){
+                   ans = min(ans,level);
+                   break;
+                }
+
+                vector<string> candidates = nextWords(str,wordList);
+
+                for(int i=0;i<candidates.size();i++){
+
+                    if(visited[candidates[i]]){ // 이미 다른 가지에 의해 방문했으면
+                        continue;
+                    }
+
+                    visited[candidates[i]] = true; // 방문 체크
+
+                    q.push(candidates[i]);
+                }
+ 
+            }
+            level++; 
+            
+        }
+
+        if(ans ==INF){
+            return 0;
+        }
+
+        return ans;
+
+    }
+    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
+    
+        return bfs(beginWord,1,wordList,endWord);
+
+    }
+};
